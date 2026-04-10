@@ -1,0 +1,20 @@
+Haversine Formula
+What is Haversine?
+
+The Haversine Formula is used to calculate the shortest distance between two points on the surface of a sphere (Earth) using their:
+
+Latitude
+Longitude
+
+This distance is called the great-circle distance.
+
+Earth is not flat, so:
+
+Straight-line (Euclidean) distance → inaccurate for large distances
+Haversine → considers Earth’s curvature
+
+Essential for:
+
+GPS systems
+Navigation
+Your railway network analysis
