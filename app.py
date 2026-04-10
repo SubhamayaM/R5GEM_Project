@@ -8,18 +8,18 @@ import joblib
 st.set_page_config(layout="wide")
 st.title("🚄 AI Railway Network Coverage Analyzer (India)")
 
-# -------------------------------------------------
+
 # Load model
-# -------------------------------------------------
+
 @st.cache_resource
 def load_model():
     return joblib.load("signal_model.pkl")
 
 model = load_model()
 
-# -------------------------------------------------
+
 # Haversine (vectorized)
-# -------------------------------------------------
+
 def haversine_vectorized(lat1, lon1, lat2, lon2):
     R = 6371
     lat1 = np.radians(lat1)
@@ -34,9 +34,9 @@ def haversine_vectorized(lat1, lon1, lat2, lon2):
     c = 2*np.arctan2(np.sqrt(a), np.sqrt(1-a))
     return R*c
 
-# -------------------------------------------------
+
 # Load towers (sample for speed)
-# -------------------------------------------------
+
 @st.cache_data
 def load_towers():
     towers = pd.read_csv("data/towers_india.csv")
@@ -47,9 +47,9 @@ towers = load_towers()
 tower_lat = towers["lat"].values
 tower_lon = towers["lon"].values
 
-# -------------------------------------------------
+
 # Session state
-# -------------------------------------------------
+
 if "points" not in st.session_state:
     st.session_state.points = []
 
