@@ -18,3 +18,8 @@ Essential for:
 GPS systems
 Navigation
 Your railway network analysis
+
+Step-by-step usage:
+Train route point is taken
+Distance to all towers is computed
+Nearest tower is selected
