@@ -53,18 +53,18 @@ tower_lon = towers["lon"].values
 if "points" not in st.session_state:
     st.session_state.points = []
 
-# -------------------------------------------------
+
 # Map UI
-# -------------------------------------------------
+
 st.subheader("📍 Click TWO points on the map")
 
 m = folium.Map(location=[22.5, 78.9], zoom_start=5)
 
 map_data = st_folium(m, height=500, width=900)
 
-# -------------------------------------------------
+
 # Capture clicks
-# -------------------------------------------------
+
 if map_data["last_clicked"]:
     lat = map_data["last_clicked"]["lat"]
     lon = map_data["last_clicked"]["lng"]
@@ -72,18 +72,17 @@ if map_data["last_clicked"]:
     if len(st.session_state.points) < 2:
         st.session_state.points.append((lat, lon))
 
-# -------------------------------------------------
 # Show selected points
-# -------------------------------------------------
+
 if len(st.session_state.points) == 2:
     start = st.session_state.points[0]
     end = st.session_state.points[1]
 
     st.success("✅ Start and End selected!")
 
-    # -------------------------------------------------
+  
     # Generate route
-    # -------------------------------------------------
+
     route_lats = np.linspace(start[0], end[0], 300)
     route_lons = np.linspace(start[1], end[1], 300)
 
