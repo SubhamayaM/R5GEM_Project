@@ -23,3 +23,11 @@ Step-by-step usage:
 Train route point is taken
 Distance to all towers is computed
 Nearest tower is selected
+
+Accurate Coverage Analysis
+Correctly finds closest tower
+Realistic Signal Modeling
+Signal depends on actual geographic distance
+Scalable for Large Data
+Your vectorized version handles:
+50,000+ towers efficiently
