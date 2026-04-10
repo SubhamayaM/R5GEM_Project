@@ -91,9 +91,9 @@ if len(st.session_state.points) == 2:
         "lon": route_lons
     })
 
-    # -------------------------------------------------
+
     # Compute nearest tower distance
-    # -------------------------------------------------
+
     nearest_distances = []
 
     for _, r in route_df.iterrows():
@@ -105,9 +105,9 @@ if len(st.session_state.points) == 2:
 
     route_df["nearest_tower_km"] = nearest_distances
 
-    # -------------------------------------------------
+    
     # Predict using ML model
-    # -------------------------------------------------
+  
     preds = model.predict(
         route_df[["lat", "lon", "nearest_tower_km"]]
     )
@@ -127,9 +127,9 @@ if len(st.session_state.points) == 2:
 
     route_df["quality"] = route_df["signal_strength"].apply(quality)
 
-    # -------------------------------------------------
+   
     # Create result map
-    # -------------------------------------------------
+    
     st.subheader("📡 Coverage Result")
 
     result_map = folium.Map(location=start, zoom_start=6)
@@ -159,8 +159,8 @@ if len(st.session_state.points) == 2:
 
     st_folium(result_map, height=500, width=900)
 
-# -------------------------------------------------
+
 # Reset button
-# -------------------------------------------------
+
 if st.button("🔄 Reset Points"):
     st.session_state.points = []
