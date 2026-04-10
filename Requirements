@@ -9,6 +9,6 @@ towers india
 train route
 lat, log, signal
 
-app.py --> run model
+app.py --> run model main
 run.py --> model comparison
 
