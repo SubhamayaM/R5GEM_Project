@@ -1,5 +1,13 @@
 Requirements: 
 
+Libraries:
+NumPy
+Pandas
+Matplotlib
+Scikit-learn
+Folium
+Streamlit
+Joblib
 
 
 
