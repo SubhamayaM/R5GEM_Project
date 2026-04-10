@@ -1,0 +1,14 @@
+Requirements: 
+
+
+
+
+Dataset:
+Coverage analysis
+towers india
+train route
+lat, log, signal
+
+app.py --> run model
+run.py --> model comparison
+
