@@ -1,3 +1,7 @@
 Comparison Based on 
 1. Latency 
-2. 
+2. THroughput 
+
+Latency -> Latency is the time delay between initiating a request and receiving a response in a system, commonly measured in milliseconds (ms). 
+(Almost 50% better)
+
