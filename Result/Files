@@ -5,4 +5,5 @@ Comparison Based on
 Latency -> Latency is the time delay between initiating a request and receiving a response in a system, commonly measured in milliseconds (ms). 
 (Almost 50% better)
 
-Higher throughput indicates better efficiency and capacity, whereas lower throughput can be caused by congestion or packet loss.
+Throughput Comparison - Higher throughput indicates better efficiency and capacity, whereas lower throughput can be caused by congestion or packet loss.
+
