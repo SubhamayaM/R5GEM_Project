@@ -3,9 +3,9 @@ import numpy as np
 
 print("📡 Starting coverage analysis...")
 
-# -------------------------------------------------
+
 # Vectorized Haversine Distance Function
-# -------------------------------------------------
+
 def haversine_vectorized(lat1, lon1, lat2, lon2):
     R = 6371  # Earth radius in km
 
@@ -23,9 +23,9 @@ def haversine_vectorized(lat1, lon1, lat2, lon2):
     return R * c
 
 
-# -------------------------------------------------
+
 # Load datasets
-# -------------------------------------------------
+
 print("📂 Loading tower dataset...")
 towers = pd.read_csv("data/towers_india.csv")
 
@@ -39,15 +39,15 @@ route = pd.read_csv("data/train_route.csv")
 print(f"✅ Towers loaded (sampled): {len(towers)}")
 print(f"✅ Route points loaded: {len(route)}")
 
-# -------------------------------------------------
+
 # Prepare tower arrays (faster)
-# -------------------------------------------------
+
 tower_lat = towers["lat"].values
 tower_lon = towers["lon"].values
 
-# -------------------------------------------------
+
 # Find nearest tower for each route point
-# -------------------------------------------------
+
 print("📡 Computing nearest tower distances...")
 
 nearest_distances = []
@@ -67,16 +67,16 @@ for idx, r in route.iterrows():
 
 route["nearest_tower_km"] = nearest_distances
 
-# -------------------------------------------------
+
 # Simulate signal strength (path loss model)
-# -------------------------------------------------
+
 print("📶 Estimating signal strength...")
 
 route["signal_strength"] = -30 - (route["nearest_tower_km"] * 6)
 
-# -------------------------------------------------
+
 # Signal quality classification
-# -------------------------------------------------
+
 def signal_quality(dbm):
     if dbm > -70:
         return "Excellent"
@@ -89,9 +89,9 @@ def signal_quality(dbm):
 
 route["quality"] = route["signal_strength"].apply(signal_quality)
 
-# -------------------------------------------------
+
 # Save output
-# -------------------------------------------------
+
 output_path = "data/coverage_analysis.csv"
 route.to_csv(output_path, index=False)
 
