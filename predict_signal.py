@@ -3,13 +3,11 @@ import pandas as pd
 
 print("📡 AI Signal Prediction System")
 
-
 # Load trained model
 
 model = joblib.load("signal_model.pkl")
 print("✅ Model loaded")
 
--
 # User input
 
 try:
@@ -20,12 +18,10 @@ except:
     print("❌ Invalid input")
     exit()
 
-
 # Prepare input
 
 input_df = pd.DataFrame([[lat, lon, dist]],
                         columns=["lat", "lon", "nearest_tower_km"])
-
 
 # Prediction
 
@@ -43,7 +39,6 @@ def signal_quality(dbm):
         return "No Signal"
 
 quality = signal_quality(pred_signal)
-
 
 # Output
 
