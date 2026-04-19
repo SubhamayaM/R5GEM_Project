@@ -7,19 +7,16 @@ import joblib
 
 print("🤖 Training ML model...")
 
-
 # Load dataset
 
 data = pd.read_csv("data/coverage_analysis.csv")
 
 print(f"✅ Loaded {len(data)} samples")
 
-
 # Feature selection
 
 X = data[["lat", "lon", "nearest_tower_km"]]
 y = data["signal_strength"]
-
 
 # Train-test split
 
@@ -39,7 +36,6 @@ model.fit(X_train, y_train)
 
 print("✅ Model training complete")
 
-
 # Evaluation
 
 y_pred = model.predict(X_test)
@@ -49,7 +45,6 @@ r2 = r2_score(y_test, y_pred)
 
 print(f"📉 MAE: {mae:.2f}")
 print(f"📊 R2 Score: {r2:.3f}")
-
 
 # Save model
 
