@@ -3,16 +3,16 @@ import folium
 
 print("🗺️ Creating coverage map...")
 
-# -------------------------------------------------
+
 # Load coverage data
-# -------------------------------------------------
+
 data = pd.read_csv("data/coverage_analysis.csv")
 
 print(f"✅ Loaded {len(data)} coverage points")
 
-# -------------------------------------------------
+
 # Create base map (center of India)
-# -------------------------------------------------
+
 center_lat = data["lat"].mean()
 center_lon = data["lon"].mean()
 
@@ -22,9 +22,9 @@ m = folium.Map(
     tiles="OpenStreetMap"
 )
 
-# -------------------------------------------------
+
 # Color function for signal quality
-# -------------------------------------------------
+
 def get_color(quality):
     if quality == "Excellent":
         return "green"
@@ -35,9 +35,8 @@ def get_color(quality):
     else:
         return "red"
 
-# -------------------------------------------------
 # Plot route points
-# -------------------------------------------------
+
 print("📍 Plotting route points...")
 
 for _, row in data.iterrows():
@@ -50,9 +49,9 @@ for _, row in data.iterrows():
         popup=f"Signal: {row['signal_strength']:.1f} dBm<br>Quality: {row['quality']}"
     ).add_to(m)
 
-# -------------------------------------------------
+
 # Draw route line
-# -------------------------------------------------
+
 print("🚄 Drawing train route...")
 
 route_coords = data[["lat", "lon"]].values.tolist()
@@ -64,9 +63,9 @@ folium.PolyLine(
     opacity=0.6
 ).add_to(m)
 
-# -------------------------------------------------
+
 # Save map
-# -------------------------------------------------
+
 output_file = "coverage_map.html"
 m.save(output_file)
 
