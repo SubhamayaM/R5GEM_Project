@@ -11,7 +11,7 @@ print("✅ Model loaded")
 
 -
 # User input
-# -------------------------------------------------
+
 try:
     lat = float(input("Enter latitude: "))
     lon = float(input("Enter longitude: "))
@@ -20,15 +20,15 @@ except:
     print("❌ Invalid input")
     exit()
 
-# -------------------------------------------------
+
 # Prepare input
-# -------------------------------------------------
+
 input_df = pd.DataFrame([[lat, lon, dist]],
                         columns=["lat", "lon", "nearest_tower_km"])
 
-# -------------------------------------------------
+
 # Prediction
-# -------------------------------------------------
+
 pred_signal = model.predict(input_df)[0]
 
 # Quality classification
@@ -44,9 +44,9 @@ def signal_quality(dbm):
 
 quality = signal_quality(pred_signal)
 
-# -------------------------------------------------
+
 # Output
-# -------------------------------------------------
+
 print("\n🔮 Prediction Result")
 print(f"📶 Signal Strength: {pred_signal:.2f} dBm")
 print(f"📡 Quality: {quality}")
