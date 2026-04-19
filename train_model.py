@@ -7,29 +7,28 @@ import joblib
 
 print("🤖 Training ML model...")
 
-# -------------------------------------------------
+
 # Load dataset
-# -------------------------------------------------
+
 data = pd.read_csv("data/coverage_analysis.csv")
 
 print(f"✅ Loaded {len(data)} samples")
 
-# -------------------------------------------------
+
 # Feature selection
-# -------------------------------------------------
+
 X = data[["lat", "lon", "nearest_tower_km"]]
 y = data["signal_strength"]
 
-# -------------------------------------------------
+
 # Train-test split
-# -------------------------------------------------
+
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
 
-# -------------------------------------------------
 # Train model
-# -------------------------------------------------
+
 model = RandomForestRegressor(
     n_estimators=100,
     random_state=42,
