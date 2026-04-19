@@ -3,13 +3,13 @@ import pandas as pd
 
 print("📡 AI Signal Prediction System")
 
-# -------------------------------------------------
+
 # Load trained model
-# -------------------------------------------------
+
 model = joblib.load("signal_model.pkl")
 print("✅ Model loaded")
 
-# -------------------------------------------------
+-
 # User input
 # -------------------------------------------------
 try:
